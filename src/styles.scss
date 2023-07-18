@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/styles/global';
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html, body { margin:0; height: 100%; }
+body { 
+    font-family: Calibri, Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(to right, #005aa7, #fffde4);
+}

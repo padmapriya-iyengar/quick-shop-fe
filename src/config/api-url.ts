@@ -1,0 +1,23 @@
+export const api = {
+    get_order_data: '/order',
+    get_order_id_data: '/order/order-id',
+    get_all_orders: '/order/all',
+    get_active_orders: '/order/active',
+    get_orders_for_product: '/order/product',
+    get_active_orders_for_product: '/order/active/product',
+    get_orders_for_customer: '/order/customer',
+    get_active_orders_for_customer: 'order/active/customer',
+    post_order: '/order',
+    get_customer_data: '/customer',
+    get_all_customers: '/customer/all',
+    get_active_customers: '/customer/active',
+    post_customer: '/customer',
+    get_product_category_data: '/product-category',
+    get_all_product_categories: '/product-category/all',
+    get_active_product_categories: '/product-category/active',
+    post_product_category: '/product-category',
+    get_product_data: '/product',
+    get_all_products: '/product/all',
+    get_active_products: '/product/active',
+    post_product: '/product'
+}

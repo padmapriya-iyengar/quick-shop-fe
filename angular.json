@@ -30,9 +30,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ]
           },
           "configurations": {
             "production": {
@@ -56,6 +64,15 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
+              "namedChunks": true
+            },
+            "DEV": {
+              "outputPath": "dist/development",
+              "sourceMap": true,
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
               "namedChunks": true
             }
           },

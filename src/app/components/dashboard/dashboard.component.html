@@ -1,0 +1,43 @@
+<mat-sidenav-container>
+    <mat-sidenav class="mat-elevation-z8">
+        <img class="avatar mat-elevation-z8" src="../../../assets/images/avatar.png"/>
+        <p class="designation">Admin</p>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>Order Summary</span>
+          </button>
+          <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Product Categories</span>
+          </button>
+          <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>Products</span>
+          </button>
+          <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Customers</span>
+          </button>
+          <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>Charts</span>
+          </button>
+            
+    </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+        <p-splitter [style]="{ height: '300px' }" styleClass="mb-5" layout="vertical">
+          <ng-template pTemplate>
+            <app-reports></app-reports>
+          </ng-template>
+          <ng-template pTemplate>
+              <div class="col flex align-items-center justify-content-center">Panel 2</div>
+          </ng-template>
+        </p-splitter>
+    </div>
+        
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

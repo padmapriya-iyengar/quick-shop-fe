@@ -1,0 +1,102 @@
+@import './global_vars';
+  mat-toolbar {
+    background: #004a9f;
+    color: white;
+  }
+  mat-sidenav {
+    margin: 16px;
+    width: 20%;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    visibility: visible !important;;
+  }
+  .content {
+    height: calc(100vh - 30px);
+    border-radius: 10px;
+    margin: 16px;
+    //margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    font-size: 2rem;
+    color: lightgray;
+  }
+  mat-sidenav-container {
+    height: 100%;
+  }
+  .mat-drawer{
+    transform: none !important;
+    background-color: #fffde4;
+  }
+  .mat-drawer{
+    display: block !important;
+  }
+  .mat-drawer-container{
+    background-color: transparent !important;
+  }
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+  .avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .designation {
+    margin-top: 15px !important;
+    font-size: 13px;
+    color: var(--mdc-text-button-label-text-color, inherit);
+  }
+  mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  //Custom styles
+  .container{
+    max-width: 100% !important;
+  }
+  .app-card{
+    .p-card{
+        height: 840px;
+        background-color: transparent;
+        .p-card-content{
+            padding: 0rem !important;
+        }
+        .p-card-body{
+            padding: 0rem !important;
+            .p-card-content{
+                padding: 0rem !important;
+            }
+        }
+    }
+  }
+  .header-row{
+    height: 50px;
+  }
+  .header-col{
+    height: 25px;
+  }
+  .header-caption{
+    width: 200px;
+    font-size: x-large;
+    font-weight: bold;
+    color: $tertiary-color;
+    margin-left: 10px;
+  }
+  .xsm-margin{
+    margin: 1px !important;
+  }
