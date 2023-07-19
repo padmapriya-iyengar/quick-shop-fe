@@ -8,6 +8,11 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { SpinnerModule } from 'primeng/spinner';
 import { ChartModule } from 'primeng/chart';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [],
@@ -20,7 +25,12 @@ import { ChartModule } from 'primeng/chart';
     CardModule,
     DividerModule,
     SpinnerModule,
-    ChartModule
-  ]
+    ChartModule,
+    DropdownModule,
+    ButtonModule,
+    ScrollPanelModule,
+    ToastModule
+  ],
+  providers: [MessageService]
 })
 export class QuickshopPrimeNGModule { }

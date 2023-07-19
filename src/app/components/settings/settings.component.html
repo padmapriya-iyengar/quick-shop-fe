@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <form #settingsForm="ngForm">
+    <div class="row" *ngIf="menuItem == 'charts'">
+        <div class="row no-padding">
+          <div class="col-lg-4 sm-padding">
+            <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+                Chart Type
+            </div>
+          </div>
+          <div class="col-lg-8 no-padding">
+            <div class="xsm-padding">
+                <p-dropdown appendTo="body" [options]="chartTypes" class="custom-dropdown" optionLabel="name"
+                  placeholder="Choose chart type" [(ngModel)]="selectedChartType"
+                  name="cType" #cType="ngModel"></p-dropdown>
+            </div>
+          </div>
+      </div>
+        <div class="row no-padding">
+          <div class="col-lg-4 sm-padding">
+            <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+                Data Source
+            </div>
+          </div>
+          <div class="col-lg-8 no-padding">
+            <div class="xsm-padding">
+                <p-dropdown appendTo="body" [options]="dataSources" class="custom-dropdown" optionLabel="name"
+                  placeholder="Choose data source" [(ngModel)]="selectedDataSource"
+                  name="dSource" #dSource="ngModel" (onChange) = "onDataSourceChange($event)"></p-dropdown>
+            </div>
+          </div>
+      </div>
+      <div class="row no-padding">
+        <div class="col-lg-4 sm-padding">
+          <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+              Populate By
+          </div>
+        </div>
+        <div class="col-lg-8 no-padding">
+          <div class="xsm-padding">
+              <p-dropdown appendTo="body" [options]="xAxisValues" class="custom-dropdown" optionLabel="name"
+                placeholder="Choose X Axis Attribute" [(ngModel)]="selectedXAxisAttr"
+                name="xAxis" #xAxis="ngModel"></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-padding">
+        <div class="col-lg-4 sm-padding">
+          <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+              Chart Title
+          </div>
+        </div>
+        <div class="col-lg-8 no-padding">
+          <div class="xsm-padding">
+            <input type="text" pInputText [(ngModel)]="chartTitle"
+              name="cTitle" #cTitle="ngModel"/>
+          </div>
+        </div>
+      </div>
+      <div class="row no-padding">
+        <div class="col-lg-4 sm-padding">
+          <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+              X Axis Title
+          </div>
+        </div>
+        <div class="col-lg-8 no-padding">
+          <div class="xsm-padding">
+            <input type="text" pInputText [(ngModel)]="xAxisTitle"
+            name="xTitle" #xTitle="ngModel"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-padding">
+        <div class="col-lg-4 sm-padding">
+          <div class="sm-padding form-field-header no-bottom-padding no-top-padding">
+              Y Axis Title
+          </div>
+        </div>
+        <div class="col-lg-8 no-padding">
+          <div class="xsm-padding">
+            <input type="text" pInputText [(ngModel)]="yAxisTitle"
+            name="yTitle" #yTitle="ngModel"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-padding">
+      <div class="col-lg-6 xsm-padding"></div>
+      <div class="col-lg-4 xsm-padding">
+          <p-button label="Submit" tooltipStyleClass="custom-tooltip" tooltipPosition="left" pTooltip="Click to load report"
+              styleClass="p-button-sm" class="custom-btn" (click)="emitData()"></p-button>
+      </div>
+  </div>
+  </form>
+</div>
+<p-toast position="top-right"></p-toast>

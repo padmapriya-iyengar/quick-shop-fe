@@ -17,7 +17,7 @@ gulp.task("migrate",  gulp.series('clear', function() {
     var distName = isProduction?'/production':'/development'
     var sourcePath = path.resolve(process.cwd() + '/src/../dist'+distName);
     var destPath = path.resolve(process.cwd() + '/../quick-shop-node/dist/app');
-    return gulp.src([sourcePath+'/*'])
+    return gulp.src([sourcePath+'/**'])
         .pipe(gulp.dest(destPath))
 }));
 

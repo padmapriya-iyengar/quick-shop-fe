@@ -98,4 +98,13 @@ export class QuickshopService {
   deleteProduct(productId:string){
     return this.http.post(this.apiEndpoint + this.apiURL.post_product+'?action=DELETE&productId='+productId,{});
   }
+  loadOrderReport(xAxisAttr:string, yAxisAttr: string){
+    return this.http.get(this.apiEndpoint + this.apiURL.load_order_report+'?xAxis='+xAxisAttr+'&yAxis='+yAxisAttr);
+  }
+  loadCustomerReport(xAxisAttr:string, yAxisAttr: string){
+    return this.http.get(this.apiEndpoint + this.apiURL.load_customer_report+'?xAxis='+xAxisAttr+'&yAxis='+yAxisAttr);
+  }
+  loadProductReport(xAxisAttr:string, yAxisAttr: string){
+    return this.http.get(this.apiEndpoint + this.apiURL.load_product_report+'?xAxis='+xAxisAttr+'&yAxis='+yAxisAttr);
+  }
 }

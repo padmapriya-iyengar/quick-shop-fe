@@ -17,6 +17,10 @@ import { UtilitiesService } from './services/utilities.service';
 import { QuickshopMaterialModule } from './modules/quickshop-material.module';
 import { QuickshopPrimeNGModule } from './modules/quickshop-primng.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './components/settings/settings.component';
+import { FormsModule } from '@angular/forms';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { CategoryInfoComponent } from './components/category-info/category-info.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,13 @@ import { HttpClientModule } from '@angular/common/http';
     ProductSummaryComponent,
     ProductInfoComponent,
     ReportsComponent,
-    DashboardComponent
+    DashboardComponent,
+    SettingsComponent,
+    ProductCategoryComponent,
+    CategoryInfoComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

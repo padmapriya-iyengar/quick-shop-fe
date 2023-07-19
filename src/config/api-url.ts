@@ -19,5 +19,8 @@ export const api = {
     get_product_data: '/product',
     get_all_products: '/product/all',
     get_active_products: '/product/active',
-    post_product: '/product'
+    post_product: '/product',
+    load_order_report: '/report/order',
+    load_customer_report: '/report/customer',
+    load_product_report: '/report/product'
 }

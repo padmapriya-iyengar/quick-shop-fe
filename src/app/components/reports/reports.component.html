@@ -1,7 +1,13 @@
-<div class="container-fluid" style="background-color: #FFF;">
+<div class="container-fluid">
     <div class="row">
-        <div class = "col-md-12">
-            <p-chart [type]="chartType" [data]="rData" [options]="rOptions"></p-chart>
+        <div class="col-6">
+            <p-chart [type]="chartType" [data]="rData" [options]="rOptions" [width]="'auto'" [height]="'300px'"></p-chart>
+        </div>
+        <p-divider class="col-1" layout="vertical"></p-divider>
+        <div class="col-5">
+            <app-settings [menuItem]="'charts'" (onSettingsEmit)="captureSettings($event)"></app-settings>
         </div>
     </div>
 </div>
+
+

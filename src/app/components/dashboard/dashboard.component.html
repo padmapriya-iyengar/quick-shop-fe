@@ -1,43 +1,59 @@
-<mat-sidenav-container>
-    <mat-sidenav class="mat-elevation-z8">
-        <img class="avatar mat-elevation-z8" src="../../../assets/images/avatar.png"/>
+<div class="container-fluid">
+  <p-scrollPanel [style]="{ width: '100%', height: '875px' }">
+    <mat-sidenav-container>
+      <mat-sidenav class="mat-elevation-z8">
+        <img class="avatar mat-elevation-z8" src="../../../assets/images/avatar.png" />
         <p class="designation">Admin</p>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button">
-            <mat-icon>info</mat-icon>
-            <span>Order Summary</span>
-          </button>
-          <button mat-button class="menu-button">
-            <mat-icon>person</mat-icon>
-            <span>Product Categories</span>
-          </button>
-          <button mat-button class="menu-button">
-            <mat-icon>info</mat-icon>
-            <span>Products</span>
-          </button>
-          <button mat-button class="menu-button">
-            <mat-icon>person</mat-icon>
-            <span>Customers</span>
-          </button>
-          <button mat-button class="menu-button">
-            <mat-icon>info</mat-icon>
-            <span>Charts</span>
-          </button>
-            
-    </mat-sidenav>
-
-  <mat-sidenav-content>
-    <div class="content mat-elevation-z8">
-        <p-splitter [style]="{ height: '300px' }" styleClass="mb-5" layout="vertical">
-          <ng-template pTemplate>
-            <app-reports></app-reports>
-          </ng-template>
-          <ng-template pTemplate>
-              <div class="col flex align-items-center justify-content-center">Panel 2</div>
-          </ng-template>
-        </p-splitter>
-    </div>
-        
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+        <button mat-button class="menu-button" pDraggable="loadMenu" (onDragStart)="dragStart('loadOS')"
+          (onDragEnd)="dragEnd('loadOS')">
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Order Summary</span>
+        </button>
+        <button mat-button class="menu-button" pDraggable="loadMenu" (onDragStart)="dragStart('loadPCS')"
+          (onDragEnd)="dragEnd('loadPCS')">
+          <mat-icon>store</mat-icon>
+          <span>Product Categories</span>
+        </button>
+        <button mat-button class="menu-button" pDraggable="loadMenu" (onDragStart)="dragStart('loadPS')"
+          (onDragEnd)="dragEnd('loadPS')">
+          <mat-icon>shopping_basket</mat-icon>
+          <span>Products</span>
+        </button>
+        <button mat-button class="menu-button" pDraggable="loadMenu" (onDragStart)="dragStart('loadCS')"
+          (onDragEnd)="dragEnd('loadCS')">
+          <mat-icon>person</mat-icon>
+          <span>Customers</span>
+        </button>
+        <button mat-button class="menu-button" pDraggable="loadMenu" (onDragStart)="dragStart('charts')"
+          (onDragEnd)="dragEnd('charts')">
+          <mat-icon>pie_chart</mat-icon>
+          <span>Charts</span>
+        </button>
+      </mat-sidenav>
+      <mat-sidenav-content>
+          <div class="content mat-elevation-z8" pDroppable="loadMenu"
+            (onDrop)="addToDraggedMenu()">
+            <div class="row lg-left-margin full-width">
+              <ng-template ngFor let-menu [ngForOf]="draggedMenu" let-i="index">
+                <div class="col-md-12 menu-area" pDroppable="iMenu" (onDrop)="dropIMenu(i)">
+                  <div class="col-md-12 report" *ngIf="menu.load">
+                    <div class="row chart-icons">
+                      <mat-icon pDraggable="iMenu" (onDragStart)="dragStartIMenu(i)"
+                          (onDragEnd)="dragEndIMenu(i)">reorder</mat-icon>
+                        <mat-icon (click)="deleteIMenu(i)">delete</mat-icon>
+                    </div>
+                    <app-reports *ngIf="menu.dropIdentifier == 'charts'"></app-reports>
+                    <app-order-summary *ngIf="menu.dropIdentifier == 'loadOS'"></app-order-summary>
+                    <app-product-summary *ngIf="menu.dropIdentifier == 'loadPS'"></app-product-summary>
+                    <app-customer-summary *ngIf="menu.dropIdentifier == 'loadCS'"></app-customer-summary>
+                    <app-product-category *ngIf="menu.dropIdentifier == 'loadPCS'"></app-product-category>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </p-scrollPanel>
+</div>

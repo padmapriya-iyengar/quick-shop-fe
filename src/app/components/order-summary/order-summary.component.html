@@ -1,1 +1,43 @@
-<p>order-summary works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 sm-padding">
+                <p-table class="custom-table" [value]="orders" [columns]="orderCols"  #orderDT 
+                [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+                [globalFilterFields]="['OrderId','PaymentMode','CustomerFk','ProductFk']">
+                    <ng-template pTemplate="caption">
+                        <div class="table-header" style="text-align: left;">
+                            <span style="width: 30%;" class="p-input-icon-right">
+                                <input #orderSearch style="width: 100%; height: 30px; font-size: 12px !important;"
+                                    class="xsm-pm-border sm-font" pInputText type="text"
+                                    (input)="orderDT.filterGlobal(orderSearch.value, 'contains')" placeholder="Search" />
+                            </span>
+                            <span style="width: 40%; padding-left: 15%;font-size: 14px !important; font-weight: bold !important;">
+                                Order Summary
+                            </span>
+                            <span style="width: 9%; padding-top: 8px;float: right;font-size: 14px !important; font-weight: bold !important;">
+                                Total Records: {{orders.length}}
+                            </span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.label}}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+                        <tr class="pointer">
+                            <ng-template ngFor let-col [ngForOf]="columns">
+                                <td>
+                                    {{ col.type == 'date' ? (rowData[col.field] | date:'dd/MM/yyyy') : rowData[col.field] }}
+                                </td>
+                            </ng-template>
+                        </tr>
+                    </ng-template>
+                </p-table>
+        </div>
+    </div>
+</div>
+  
