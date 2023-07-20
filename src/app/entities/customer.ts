@@ -1,3 +1,10 @@
+
+/**
+ * customer entity
+ * @export
+ * @class Customer
+ * @typedef {Customer}
+ */
 export class Customer {
     Id!: Number;
     Title!: string;

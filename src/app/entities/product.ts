@@ -1,3 +1,10 @@
+
+/**
+ * product entity
+ * @export
+ * @class Product
+ * @typedef {Product}
+ */
 export class Product {
     Id!: Number;
     Name!: string;

@@ -3,16 +3,29 @@ import { Table } from 'primeng/table';
 import { Customer } from 'src/app/entities/customer';
 import { QuickshopService } from 'src/app/services/quickshop.service';
 
+/**
+ * displays a summary of all the customers
+ * @export
+ * @class CustomerSummaryComponent
+ * @typedef {CustomerSummaryComponent}
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-customer-summary',
   templateUrl: './customer-summary.component.html',
   styleUrls: ['./customer-summary.component.scss']
 })
+
 export class CustomerSummaryComponent implements OnInit{
   customers: Customer[] = [];
   customerCols: any[] = [];
   @ViewChild('customerDT')customerTable!: Table;
-
+  
+  /**
+   * Creates an instance of CustomerSummaryComponent.
+   * @constructor
+   * @param {QuickshopService} qsService
+   */
   constructor(private qsService: QuickshopService){}
 
   ngOnInit(): void {
@@ -27,6 +40,10 @@ export class CustomerSummaryComponent implements OnInit{
     ]
     this.loadCustomers()
   }
+  
+  /**
+   * load all active customers
+   */
   loadCustomers(){
     this.qsService.getActiveCustomers().subscribe({next: (response) => {
       let resp = Object.assign(response);

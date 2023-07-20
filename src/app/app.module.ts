@@ -21,7 +21,14 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { CategoryInfoComponent } from './components/category-info/category-info.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
+/**
+ * bootstrap module
+ * @export
+ * @class AppModule
+ * @typedef {AppModule}
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +42,8 @@ import { CategoryInfoComponent } from './components/category-info/category-info.
     DashboardComponent,
     SettingsComponent,
     ProductCategoryComponent,
-    CategoryInfoComponent
+    CategoryInfoComponent,
+    LandingPageComponent
   ],
   imports: [
     FormsModule,
@@ -49,4 +57,5 @@ import { CategoryInfoComponent } from './components/category-info/category-info.
   providers: [QuickshopService, UtilitiesService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

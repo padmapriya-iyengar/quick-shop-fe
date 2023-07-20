@@ -2,13 +2,26 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { QuickshopService } from 'src/app/services/quickshop.service';
 import * as _ from 'lodash'
 
+/**
+ * displays charts as bar,pie or doughnuts
+ * @export
+ * @class ReportsComponent
+ * @typedef {ReportsComponent}
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.scss']
 })
-export class ReportsComponent implements OnInit{
 
+export class ReportsComponent implements OnInit{
+  
+  /**
+   * Creates an instance of ReportsComponent.
+   * @constructor
+   * @param {QuickshopService} qsService
+   */
   constructor(private qsService: QuickshopService){}
 
   rData: any = {}
@@ -23,9 +36,8 @@ export class ReportsComponent implements OnInit{
   textColor = this.documentStyle.getPropertyValue('--text-color')
   textColorSecondary = this.documentStyle.getPropertyValue('--text-color-secondary')
   surfaceBorder = this.documentStyle.getPropertyValue('--surface-border')
-  xAxisValues: any[] = []//['Q1', 'Q2', 'Q3', 'Q4']
-  yAxisValues: any[] = []//[540, 325, 702, 620]
-  //labelAttrMap: Map<string,string> = new Map()
+  xAxisValues: any[] = []
+  yAxisValues: any[] = []
   reportSettings: any = {}
   menuConfig: any[] = [
     {dropIdentifier: 'charts',settingsData:{}},
@@ -37,6 +49,12 @@ export class ReportsComponent implements OnInit{
     if(this.dataSource == 'orders')
       this.getOrderData(this.xAxisLabel,this.yAxisLabel)
   }
+  
+  /**
+   * loads order data for the given x and y axes attributes
+   * @param {string} xAxisAttr
+   * @param {string} yAxisAttr
+   */
   getOrderData(xAxisAttr:string, yAxisAttr:string){
     this.qsService.loadOrderReport(xAxisAttr,yAxisAttr).subscribe({next: (response) => {
         let resp = Object.assign(response);
@@ -59,6 +77,12 @@ export class ReportsComponent implements OnInit{
       }
     })
   }
+  
+  /**
+   * loads product data for the given x and y axes attributes
+   * @param {string} xAxisAttr
+   * @param {string} yAxisAttr
+   */
   getProductData(xAxisAttr:string, yAxisAttr:string){
     this.qsService.loadProductReport(xAxisAttr,yAxisAttr).subscribe({next: (response) => {
         let resp = Object.assign(response);
@@ -81,6 +105,12 @@ export class ReportsComponent implements OnInit{
       }
     })
   }
+  
+  /**
+   * loads customer data for the given x and y axes attributes
+   * @param {string} xAxisAttr
+   * @param {string} yAxisAttr
+   */
   getCustomerData(xAxisAttr:string, yAxisAttr:string){
     this.qsService.loadCustomerReport(xAxisAttr,yAxisAttr).subscribe({next: (response) => {
         let resp = Object.assign(response);
@@ -103,6 +133,10 @@ export class ReportsComponent implements OnInit{
       }
     })
   }
+  
+  /**
+   * set chart styles and other options
+   */
   populateReportOptions(){
     this.rOptions = {
       responsive: true,
@@ -148,6 +182,10 @@ export class ReportsComponent implements OnInit{
       }
   };
   }
+  
+  /**
+   * bind data to chart
+   */
   populateReport(){
     this.rData = {
       labels: this.xAxisValues,
@@ -155,7 +193,6 @@ export class ReportsComponent implements OnInit{
           {
               label: this.reportSettings.reportTitle ? this.reportSettings.reportTitle : 'Years',
               data: this.yAxisValues,
-              //backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
               backgroundColor: ['#ffa600','#ff6361','#bc5090','#58508d','#003f5c'],
               borderColor: ['#ffa600','#ff6361','#bc5090','#58508d','#003f5c'],
               borderWidth: 1
@@ -163,6 +200,10 @@ export class ReportsComponent implements OnInit{
       ]
     }
   }
+  
+  /**
+   * refresh chart styles and data
+   */
   refreshReport(){
     this.rData.datasets = [];
     this.xAxisValues = [];
@@ -177,6 +218,11 @@ export class ReportsComponent implements OnInit{
     else if(this.reportSettings.dataSource == 'customers')
       this.getCustomerData(this.reportSettings.xAxisLabel,this.reportSettings.yAxisLabel)
   }
+  
+  /**
+   * capture settings information to reload the chart
+   * @param {*} data
+   */
   captureSettings(data:any){
     if(data.action == 'load'){
       let menuIndex = _.findIndex(this.menuConfig, (menu) => {

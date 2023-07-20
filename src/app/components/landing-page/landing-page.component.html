@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="row">
+        <p-splitter>
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center report landing-card">
+                    <p-card header="What is Quick Shop?">
+                        <p class="m-0">
+                            Quick Shop is a demo application to visualize and analyze the traffic & inventory data of a grocery store!!
+                        </p>
+                    </p-card>
+                    <mat-divider></mat-divider>
+                    <p-accordion [activeIndex]="0">
+                        <p-accordionTab header="Overview">
+                            <ul>
+                                <li>Drag entities from the side pane to visualize and analyze data.</li>
+                                <li>Individual cards dragged can be rearranged or deleted.</li>
+                                <li>Dashboard can be configured with multiple charts.</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Order Summary">
+                            <ul>
+                                <li>Drag Order Summary onto the dashboard to view and analyse all the orders.</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Customers">
+                            <ul>
+                                <li>Drag Customers onto the dashboard to view and analyse all the customers.</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Products">
+                            <ul>
+                                <li>Drag Products onto the dashboard to view and analyse all the products.</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Charts">
+                            <ul>
+                                <li>Drag Charts onto the dashboard to visualize data from all the entities.</li>
+                                <li>Each chart has its own settings to change:</li>
+                                <ul>
+                                    <li>Chart Type - Bar/Pie/Doughnut</li>
+                                    <li>Data Source - Orders/Products/Customers</li>
+                                    <li>Populate By - Attribute for X Axis</li>
+                                    <li>Chart Title</li>
+                                    <li>X Axis Title</li>
+                                    <li>Y Axis Title</li>
+                                </ul>
+                            </ul>
+                        </p-accordionTab>
+                    </p-accordion>
+                </div>
+            </ng-template>
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center report landing-card">
+                    <p-accordion [activeIndex]="0">
+                        <p-accordionTab header="Tech Stack">
+                            <ul>
+                                <li>Angular(16.1.5)</li>
+                                <li>Node(18.17.0)</li>
+                                <li>MySQL(8.0.34)</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Server Details">
+                            <ul>
+                                <li>Host/IP - 52.207.192.149</li>
+                                <li>OS - Windows 64bit</li>
+                                
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Database Details">
+                            <ul>
+                                <li>Schema Name - quickshop_db</li>
+                                <li>Username - appuser</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Angular Dependencies">
+                            <ul>
+                                <li>Material(16.1.5)</li>
+                                <li>PrimeNG(16.0.2)</li>
+                                <li>Bootstrap(5.3.0)</li>
+                                <li>Chart.js(4.3.0)</li>
+                                <li>Lodash(4.17.21)</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="Node Dependencies">
+                            <ul>
+                                <li>Express.js(4.18.2)</li>
+                                <li>Sequelize(6.32.1)</li>
+                                <li>Morgan(1.10.0)</li>
+                                <li>Winston(3.10.0)</li>
+                                <li>Winston Daily Rotate File(4.7.1)</li>
+                            </ul>
+                        </p-accordionTab>
+                        <p-accordionTab header="References">
+                            <ul>
+                                <li><a href='https://primeng.org' target="_blank">PrimeNG</a></li>
+                                <li><a href='https://material.angular.io' target="_blank">Material</a></li>
+                                <li><a href='https://material.angular.io' target="_blank">Deployment Document</a></li>
+                            </ul>
+                        </p-accordionTab>
+                    </p-accordion>
+                </div>
+            </ng-template>
+        </p-splitter>
+    </div>
+</div>

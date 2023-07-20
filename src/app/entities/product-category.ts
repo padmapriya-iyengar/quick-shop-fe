@@ -1,3 +1,10 @@
+
+/**
+ * product category entity
+ * @export
+ * @class ProductCategory
+ * @typedef {ProductCategory}
+ */
 export class ProductCategory {
     Id!: Number;
     Category!: string;

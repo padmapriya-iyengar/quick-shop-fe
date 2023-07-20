@@ -7,6 +7,12 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatListModule } from '@angular/material/list'
 
+/**
+ * common module for all dependent material modules 
+ * @export
+ * @class QuickshopMaterialModule
+ * @typedef {QuickshopMaterialModule}
+ */
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -19,4 +25,5 @@ import { MatListModule } from '@angular/material/list'
     MatListModule
   ]
 })
+
 export class QuickshopMaterialModule { }

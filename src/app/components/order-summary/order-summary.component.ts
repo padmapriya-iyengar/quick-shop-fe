@@ -3,16 +3,31 @@ import { Table } from 'primeng/table';
 import { Order } from 'src/app/entities/order';
 import { QuickshopService } from 'src/app/services/quickshop.service';
 
+/**
+ * displays a summary of all the customers
+ * @export
+ * @class OrderSummaryComponent
+ * @typedef {OrderSummaryComponent}
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
   styleUrls: ['./order-summary.component.scss']
 })
+
 export class OrderSummaryComponent implements OnInit{
 
   orders: Order[] = [];
   orderCols: any[] = [];
   @ViewChild('orderDT')orderTable!: Table;
+
+  
+  /**
+   * Creates an instance of OrderSummaryComponent.
+   * @constructor
+   * @param {QuickshopService} qsService
+   */
   constructor(private qsService: QuickshopService){}
 
   ngOnInit(): void {
@@ -25,6 +40,10 @@ export class OrderSummaryComponent implements OnInit{
     ]
     this.loadOrders()
   }
+  
+  /**
+   * load all active orders
+   */
   loadOrders(){
     this.qsService.getActiveOrders().subscribe({next: (response) => {
       let resp = Object.assign(response);

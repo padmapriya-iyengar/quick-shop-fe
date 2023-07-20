@@ -2,11 +2,19 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { NgForm } from '@angular/forms';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 
+/**
+ * settings for charts
+ * @export
+ * @class SettingsComponent
+ * @typedef {SettingsComponent}
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
+
 export class SettingsComponent implements OnInit{
   @Input() menuItem:string='';
   @Input() defaultInfo: any = {};
@@ -24,9 +32,13 @@ export class SettingsComponent implements OnInit{
   xAxisTitle: string = ''
   yAxisTitle:string = ''
 
-
   @ViewChild('settingsForm') settingsForm!: NgForm;
 
+  /**
+   * Creates an instance of SettingsComponent.
+   * @constructor
+   * @param {UtilitiesService} util
+   */
   constructor(private util: UtilitiesService){}
 
   ngOnInit(): void {
@@ -36,6 +48,11 @@ export class SettingsComponent implements OnInit{
       }
       this.loadDefaultValues(this.menuItem)
   }
+  
+  /**
+   * load default settings
+   * @param {*} menuItem
+   */
   loadDefaultValues(menuItem: any){
     this.yAxisValues.push({name:'Count',value:'COUNT'})
     this.selectedYAxisAttr = this.yAxisValues[0]
@@ -46,18 +63,30 @@ export class SettingsComponent implements OnInit{
       this.selectedXAxisAttr = this.xAxisValues[0];
     }
   }
+  
+  /**
+   * load all data sources
+   */
   loadDataSources(){
     this.dataSources = []
     this.dataSources.push({name:'Orders',value:'orders'})
     this.dataSources.push({name:'Products',value:'products'})
     this.dataSources.push({name:'Customers',value:'customers'})
   }
+  
+  /**
+   * load all chart types
+   */
   loadChartTypes(){
     this.chartTypes = []
     this.chartTypes.push({name:'Bar',value:'bar'})
     this.chartTypes.push({name:'Pie',value:'pie'})
     this.chartTypes.push({name:'Doughnut',value:'doughnut'})
   }
+  
+  /**
+   * load populated by dropdown based on the selected data source
+   */
   loadXAxisValues(){
     this.xAxisValues = []
     if(this.selectedDataSource.value == 'orders'){
@@ -77,6 +106,10 @@ export class SettingsComponent implements OnInit{
       this.xAxisValues.push({name:'Status',value:'STATUS'})
     }
   }
+  
+  /**
+   * emit data to reports component on submit
+   */
   emitData(){
     if(!this.util.isEmpty(this.selectedChartType.value) && 
       !this.util.isEmpty(this.selectedDataSource.value) &&
@@ -95,8 +128,12 @@ export class SettingsComponent implements OnInit{
       } else{
         this.util.alert('error','Missing Information','Please fill all the details!!',false)
       }
-    
   }
+  
+  /**
+   * refresh populated by dropdown when data source changes
+   * @param {*} data
+   */
   onDataSourceChange(data:any){
     if(data.value){
       this.selectedXAxisAttr = {};

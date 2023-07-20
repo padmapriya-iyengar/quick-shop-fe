@@ -13,7 +13,15 @@ import { ButtonModule } from 'primeng/button';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { FieldsetModule } from 'primeng/fieldset';
+import { AccordionModule } from 'primeng/accordion';
 
+/**
+ * common module for all dependent primeng modules 
+ * @export
+ * @class QuickshopPrimeNGModule
+ * @typedef {QuickshopPrimeNGModule}
+ */
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -29,8 +37,11 @@ import { MessageService } from 'primeng/api';
     DropdownModule,
     ButtonModule,
     ScrollPanelModule,
-    ToastModule
+    ToastModule,
+    FieldsetModule,
+    AccordionModule
   ],
   providers: [MessageService]
 })
+
 export class QuickshopPrimeNGModule { }

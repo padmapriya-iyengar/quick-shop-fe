@@ -1,3 +1,10 @@
+
+/**
+ * order entity
+ * @export
+ * @class Order
+ * @typedef {Order}
+ */
 export class Order {
     Id!: Number;
     OrderId!: string;
